@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
-import { Client } from "@/components/Client";
 import ContextProvider from "@/context/FestivalContext";
 
 import "./globals.css";
