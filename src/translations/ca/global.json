@@ -1,0 +1,111 @@
+{
+  "navbar": {
+    "home": "Inici",
+    "registerFestival": "Registrar festival",
+    "calendar": "Calendari",
+    "favorites": "favorits",
+    "logOut": "Sortir"
+  },
+  "home": {
+    "text": "Sent el ritme, viu l'experiència!!"
+  },
+  "search": {
+    "where": "On?",
+    "from": "Desde",
+    "to": "Fins",
+    "search": "Buscar"
+  },
+  "formAddFestival": {
+    "name": "Nom del festival",
+    "city": "Ciutat",
+    "address": "Adreça",
+    "PC": "CP",
+    "teachers": "Professors",
+    "add": "Afegir",
+    "modalities": "Modalitats",
+    "price": "Preu",
+    "from": "Des de",
+    "to": "Fins",
+    "dateStart": "Data inici",
+    "dateEnd": "Data fi",
+    "image": "Imatge principal",
+    "url": "Url del festival",
+    "uploadFile": "Pujar arxiu",
+    "uploadedFile": "Arxiu carregat",
+    "description": "Descripció",
+    "send": "Enviar",
+    "noModality": "Has d'indicar una modalitat",
+    "noImage": "Has de pujar una imatge"
+  },
+  "months": {
+    "January": "Gener",
+    "February": "Febrer",
+    "March": "Març",
+    "April": "Abril",
+    "May": "Maig",
+    "June": "Juny",
+    "July": "Juliol",
+    "August": "Agost",
+    "September": "Setembre",
+    "October": "Octubre",
+    "November": "Novembre",
+    "December": "Desembre"
+  },
+  "date": {
+    "longDate": "Del {{dayStart}} de {{monthStart}} al {{dayEnd}} de {{monthEnd}} de {{yearStart}}",
+    "shortDate": "Del {{dayStart}} al {{dayEnd}} de {{monthStart}} de {{yearStart}}",
+    "cardDate": "{{dayStart}} de {{monthStart}} de {{yearStart}}"
+  },
+  "infoFestival": {
+    "from": "Des de",
+    "to": "Fins",
+    "modalities": "Modalitats",
+    "teachers": "Professors",
+    "description": "Descripció",
+    "moreFestivals": "MÉS FESTIVALS",
+    "delete": "Eliminar festival"
+  },
+  "countDown": {
+    "days": "Dies",
+    "hours": "Hores",
+    "minutes": "Min",
+    "seconds": "Seg"
+  },
+  "calendar": {
+    "language": "ca",
+    "favorites": "Favorits",
+    "all": "Tots"
+  },
+  "login": {
+    "login": "Inicia sessió",
+    "register": "Registre",
+    "noAccount": "¿No tens compte?",
+    "yesAccount": "¿Tens compte?"
+  },
+  "loginError": {
+    "emailNoValid": "El correo electrònic no es vàlid",
+    "emailUse": "El correu electrònic està en ús",
+    "password": "Contrasenya mínima de 6 caràcters",
+    "errorEmailPassword": "El correu electrònic o la contrasenya són incorrectes",
+    "emptyInputs": "Has d'omplir tots els camps"
+  },
+  "noFestival": {
+    "noFestival": "No hem trobat festivals disponibles a {{city}} en les dates seleccionades",
+    "noCity": "No hem trobat festivals disponibles en les dates seleccionades"
+  },
+  "modal": {
+    "saveFavorites": "Has d'estar registrat per desar a favorits",
+    "register": "Registrar-se",
+    "close": "Tancar",
+    "addFestival": "Has d'estar registrat per afegir festivals",
+    "deleteFestival": "Festival eliminat"
+  },
+  "favorites": {
+    "noFavorites": "No tens favorits desats",
+    "add": "Afegir"
+  },
+  "loading": {
+    "loading": "Carregant...",
+    "register": "Registrant festival"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "navbar": {
+    "home": "home",
+    "registerFestival": "Register festival",
+    "calendar": "Calendar",
+    "favorites": "favorites",
+    "logOut": "logOut"
+  },
+  "home": {
+    "text": "¡¡Feel the rhythm, live the experience!!"
+  },
+  "search": {
+    "where": "¿Where?",
+    "from": "From",
+    "to": "To",
+    "search": "Search"
+  },
+  "formAddFestival": {
+    "name": "Name of festival",
+    "city": "City",
+    "address": "Address",
+    "PC": "PC",
+    "teachers": "Teachers",
+    "add": "Add",
+    "modalities": "Modalities",
+    "price": "Price",
+    "from": "From",
+    "to": "To",
+    "dateStart": "Date start",
+    "dateEnd": "Date end",
+    "image": "Main image",
+    "url": "Url of festival",
+    "uploadFile": "Upload file",
+    "uploadedFile": "Uploaded file",
+    "description": "Description",
+    "send": "Send",
+    "noModality": "You must specify a modality.",
+    "noImage": "You must upload an image"
+  },
+  "months": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
+  "date": {
+    "longDate": "From {{monthStart}} {{dayStart}} to {{monthEnd}} {{dayEnd}}, {{yearStart}}",
+    "shortDate": "From {{monthStart}} {{dayStart}} to {{dayEnd}}, {{yearStart}}",
+    "cardDate": "{{monthStart}} {{dayStart}}, {{yearStart}}"
+  },
+  "infoFestival": {
+    "from": "From",
+    "to": "to",
+    "modalities": "Modalities",
+    "teachers": "Teachers",
+    "description": "Description",
+    "moreFestivals": "MORE FESTIVALS",
+    "delete": "Delete festival"
+  },
+  "countDown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec"
+  },
+  "calendar": {
+    "language": "en",
+    "favorites": "Favorites",
+    "all": "All"
+  },
+  "login": {
+    "login": "Login",
+    "register": "Register",
+    "noAccount": "Don't you have an account?",
+    "yesAccount": "Do you have an account?"
+  },
+  "loginError": {
+    "emailNoValid": "The email is not valid",
+    "emailUse": "The email is in use",
+    "password": "Minimum password length of 6 characters",
+    "errorEmailPassword": "The email or password is incorrect",
+    "emptyInputs": "You must fill in all fields"
+  },
+  "noFestival": {
+    "noFestival": "There are no festivals available in {{city}} on these selected dates",
+    "noCity": "There are no festivals available on these selected dates"
+  },
+  "modal": {
+    "saveFavorites": "You must be registered to save to favorites",
+    "register": "Register",
+    "close": "Close",
+    "addFestival": "You must be registered to add festivals",
+    "deleteFestival": "Festival deleted"
+  },
+  "favorites": {
+    "noFavorites": "You have no favorites saved",
+    "add": "Add"
+  },
+  "loading": {
+    "loading": "Loading...",
+    "register": "Registering festival"
+  }
+}
