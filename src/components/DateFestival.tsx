@@ -2,10 +2,9 @@ import React, { useTransition } from "react";
 import { months } from "@/data/months";
 
 interface Props {
-  date:string
+  date: string;
 }
-const DateFestival = ({ date } : Props) => {
- 
+const DateFestival = ({ date }: Props) => {
   const arrayDate = date.split("-");
   const positionMonth = arrayDate[1];
   const dayTotal = arrayDate[2];
@@ -15,8 +14,9 @@ const DateFestival = ({ date } : Props) => {
 
   return (
     <div className="flex gap-2 ">
-      <span>{day} de {month} de ${year}</span>
-    
+      <span>
+        {day} de {month} de {year}
+      </span>
     </div>
   );
 };

@@ -1,6 +1,7 @@
-"use client"
+"use client";
 
 import { createContext, useContext, useState } from "react";
+import appFirebase from "../credentials";
 import {
   getFirestore,
   collection,
@@ -9,31 +10,32 @@ import {
   doc,
 } from "firebase/firestore";
 
-import appFirebase from "../credentials";
+import { Festival, FestivalContextType } from "@/types/types";
 
-import { Festival,FestivalContextType } from "@/types/types";
+const FestivalContext = createContext<FestivalContextType | undefined>(
+  undefined
+);
 
-const FestivalContext = createContext<FestivalContextType | undefined >(undefined);
+const ContextProvider = ({ children }: { children: React.ReactNode }) => {
+  const [festivals, setFestivals] = useState<Festival[]>([]);
+  const [infoFestival, setInfoFestival] = useState<Festival | null>(null);
+  const [isFoundFestival, setIsFoundFestival] = useState<boolean>(true);
+  const [contentQuill, setContentQuill] = useState<string>("");
 
-const ContextProvider = ({ children } : {children:React.ReactNode}) => {
-  const [festivals, setFestivals]= useState<Festival[]>([]);
-  const [infoFestival, setInfoFestival] = useState<Festival | null >(null);
-  const [isFoundFestival, setIsFoundFestival] = useState<boolean> (true)
-  const [contentQuill, setContentQuill] = useState<string>("")
-
-
-  const getFilterModality = (modalityFilter : string)=> {
-    return festivals.filter((fest:Festival) => fest.modality.includes(modalityFilter));
+  const getFilterModality = (modalityFilter: string) => {
+    return festivals.filter((fest: Festival) =>
+      fest.modality.includes(modalityFilter)
+    );
   };
 
   // Get festival by document ID
-  const getFestivalByDocId = async (docId : string) => {
+  const getFestivalByDocId = async (docId: string) => {
     const db = getFirestore(appFirebase);
     try {
       const docRef = doc(db, "festivals", docId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        const festivalData = docSnap.data() as Festival
+        const festivalData = docSnap.data() as Festival;
         setInfoFestival(festivalData);
       } else {
         console.log("No such document!");
@@ -49,10 +51,10 @@ const ContextProvider = ({ children } : {children:React.ReactNode}) => {
     try {
       const querySnapshot = await getDocs(collection(db, "festivals"));
       const arrayFestivals = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data() as Festival,
+        //id: doc.id,
+        ...(doc.data() as Festival),
       }));
-      setFestivals (arrayFestivals );
+      setFestivals(arrayFestivals);
     } catch (error) {
       console.error("Error getting festivals:", error);
     }
