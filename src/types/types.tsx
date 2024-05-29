@@ -24,11 +24,9 @@ export interface FestivalContextType {
   contentQuill: string;
   setContentQuill: (content: string) => void;
   setInfoFestival: (festival: Festival | null) => void;
-  setIsFoundFestival: (isFound: boolean) => void;
   setFestivals: (festivals: Festival[]) => void;
   getFestivalByDocId: (docId: string) => Promise<void>;
   getFestivals: () => Promise<void>;
-  getFilterModality: (modalityFilter: string) => Festival[];
 }
 
 export interface Params {

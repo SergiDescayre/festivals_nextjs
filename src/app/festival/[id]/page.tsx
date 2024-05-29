@@ -17,7 +17,6 @@ const page = ({ params }: Props) => {
   useEffect(() => {
     getFestivalByDocId(params.id);
   }, []);
- 
 
   return (
     <div className="bg-dark50 min-h-[1000px]">
@@ -27,7 +26,6 @@ const page = ({ params }: Props) => {
             <span className="text-primary uppercase font-semibold mt-5 mb-3 md:text-2xl xl:text-4xl x:mb-5">
               {infoFestival.name}
             </span>
-            
           </div>
 
           <div className="flex flex-col md:flex-row w-[80%] md:align-center max-w-[1440px] mx-auto">
@@ -43,22 +41,19 @@ const page = ({ params }: Props) => {
               </div>
               <div className="md:flex md:justify-between">
                 <div className="xl:pt-3 md:-ms-5">
-                  <CountDawn
-                    date={infoFestival.data_start}
-                    docId={infoFestival.docId}
-                  />
+                  <CountDawn date={infoFestival.data_start} />
                 </div>
               </div>
             </div>
             <div className="flex flex-col md:mt-4  gap-3 md:ps-6  flex-grow ">
               <div className="flex flex-col gap-3">
                 <div className="flex gap-2 items-center">
-                <Image
-                src="/assets/location.svg"
-                width={12}
-                height={12}
-                alt="location"
-              />
+                  <Image
+                    src="/assets/location.svg"
+                    width={12}
+                    height={12}
+                    alt="location"
+                  />
                   <span className="text-xs xl:text-base capitalize ">
                     {infoFestival.address} - {infoFestival.city} -{" "}
                     {infoFestival.CP}
@@ -66,22 +61,22 @@ const page = ({ params }: Props) => {
                 </div>
 
                 <div className="flex gap-2 text-xs xl:text-base">
-                <Image
-                src="/assets/calendar.svg"
-                width={12}
-                height={12}
-                alt="calendar"
-              />
+                  <Image
+                    src="/assets/calendar.svg"
+                    width={12}
+                    height={12}
+                    alt="calendar"
+                  />
                   <DateFestival date={infoFestival.data_start} />
                 </div>
 
                 <div className="flex gap-2">
-                <Image
-                src="/assets/price.svg"
-                width={12}
-                height={12}
-                alt="price"
-              />
+                  <Image
+                    src="/assets/price.svg"
+                    width={12}
+                    height={12}
+                    alt="price"
+                  />
                   <span className="text-xs xl:text-base ">
                     {infoFestival.minPrice} €{infoFestival.maxPrice} €
                   </span>

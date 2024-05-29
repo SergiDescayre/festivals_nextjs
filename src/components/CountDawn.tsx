@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { useFestivalContext } from "../context/FestivalContext";
+interface Props {
+  date: string;
+}
 
-const CountDawn = ({ date, docId }) => {
-  const { deleteFestival, deleteFavorite } = useFestivalContext();
-
+const CountDawn = ({ date }: Props) => {
   // Fecha de finalización del countdown
   const endDate = new Date(date).getTime();
   // Estado para almacenar el tiempo restante
@@ -30,23 +30,8 @@ const CountDawn = ({ date, docId }) => {
     };
   }
 
-  const showLastTime = () => {
-    if (timeRemaining && timeRemaining.days === 0) {
-      setLastTime(true);
-    }
-  };
-  const deletePastFestivals = () => {
-    deleteFestival(docId);
-    deleteFavorite(docId);
-    // navigate("/");
-  };
-
   // Función para actualizar el tiempo restante cada segundo
   useEffect(() => {
-    showLastTime();
-    if (timeRemaining.days === -1) {
-      deletePastFestivals();
-    }
     const interval = setInterval(() => {
       setTimeRemaining(calculateTimeRemaining());
     }, 1000);
@@ -73,7 +58,9 @@ const CountDawn = ({ date, docId }) => {
         }  items-center w-18 `}
       >
         <span className="countdown text-2xl xl:text-3xl">
-          <span style={{ "--value": timeRemaining.hours }}></span>
+          <span
+            style={{ "--value": timeRemaining.hours } as React.CSSProperties}
+          ></span>
         </span>
         <span className="text-xs xl:text-sm text-primary">Horas</span>
       </div>
@@ -83,7 +70,9 @@ const CountDawn = ({ date, docId }) => {
         }  items-center w-18 `}
       >
         <span className="countdown text-2xl xl:text-3xl">
-          <span style={{ "--value": timeRemaining.minutes }}></span>
+          <span
+            style={{ "--value": timeRemaining.minutes } as React.CSSProperties}
+          ></span>
         </span>
         <span className="text-xs xl:text-sm text-primary">Min</span>
       </div>
@@ -93,7 +82,9 @@ const CountDawn = ({ date, docId }) => {
         }  items-center w-18 `}
       >
         <span className="countdown text-2xl xl:text-3xl">
-          <span style={{ "--value": timeRemaining.seconds }}></span>
+          <span
+            style={{ "--value": timeRemaining.seconds } as React.CSSProperties}
+          ></span>
         </span>
         <span className="text-xs xl:text-sm text-primary">Seg</span>
       </div>

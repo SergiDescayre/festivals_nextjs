@@ -12,21 +12,23 @@ import {
 
 import { Festival, FestivalContextType } from "@/types/types";
 
-const FestivalContext = createContext<FestivalContextType | undefined>(
-  undefined
-);
+const FestivalContext = createContext<FestivalContextType>({
+  festivals: [],
+  infoFestival: null,
+  isFoundFestival: true,
+  contentQuill: "",
+  setContentQuill: () => {},
+  setInfoFestival: () => {},
+  setFestivals: () => {},
+  getFestivalByDocId: () => Promise.resolve(),
+  getFestivals: () => Promise.resolve(),
+});
 
 const ContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [festivals, setFestivals] = useState<Festival[]>([]);
   const [infoFestival, setInfoFestival] = useState<Festival | null>(null);
   const [isFoundFestival, setIsFoundFestival] = useState<boolean>(true);
   const [contentQuill, setContentQuill] = useState<string>("");
-
-  const getFilterModality = (modalityFilter: string) => {
-    return festivals.filter((fest: Festival) =>
-      fest.modality.includes(modalityFilter)
-    );
-  };
 
   // Get festival by document ID
   const getFestivalByDocId = async (docId: string) => {
@@ -51,7 +53,6 @@ const ContextProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const querySnapshot = await getDocs(collection(db, "festivals"));
       const arrayFestivals = querySnapshot.docs.map((doc) => ({
-        //id: doc.id,
         ...(doc.data() as Festival),
       }));
       setFestivals(arrayFestivals);
@@ -69,11 +70,9 @@ const ContextProvider = ({ children }: { children: React.ReactNode }) => {
         contentQuill,
         setContentQuill,
         setInfoFestival,
-        setIsFoundFestival,
         setFestivals,
         getFestivalByDocId,
         getFestivals,
-        getFilterModality,
       }}
     >
       {children}

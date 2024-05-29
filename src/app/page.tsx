@@ -1,19 +1,20 @@
 "use client";
 import { useEffect } from "react";
-import Header from "@/components/Header";
 import { useFestivalContext } from "@/context/FestivalContext";
-import { FestivalContextType } from "@/types/types";
+import ListFestivals from "@/components/ListFestivals";
+import Header from "@/components/Header";
 
 export default function Home() {
-  const { getFestivals } = useFestivalContext() as FestivalContextType;
+  const { getFestivals } = useFestivalContext();
 
   useEffect(() => {
     getFestivals();
   }, []);
 
   return (
-    <main className="bg-dark50">
+    <section className="bg-dark50">
       <Header />
-    </main>
+      <ListFestivals />
+    </section>
   );
 }
