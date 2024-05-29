@@ -50,10 +50,16 @@ const ListFestivals = () => {
     }
   }
 
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const foundName = festivals.filter(fest => fest.name.toLowerCase().includes(e.target.value.toLowerCase()))
+      setOrdered(foundName)
+  }
+
   return (
     <section className="container mx-auto">
       <div className="bg-dark50 ">
-        <div className = "flex py-8 gap-3 justify-center px-5">
+        <div className = "flex py-8 gap-3 justify-center px-5 flex-wrap">
+        <input onChange={handleChange} type="text" placeholder="Buscar" className=" bg-orange-100 input input-bordered input-sm w-full max-w-xs" />
         <select className="select select-sm w-full max-w-xs bg-orange-100" value={selectModality} onChange={filterByModality}>
           <option className="bg-secondary" value="Todos" >Todos</option>
           <option className="bg-secondary" value="Lindy Hop" >Lindy Hop</option>
