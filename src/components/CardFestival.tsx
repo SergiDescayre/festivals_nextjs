@@ -28,6 +28,11 @@ const CardFestival = ({ fest }: Props) => {
               </span>
             </div>
           </div>
+          <div className ="flex gap-4 ms-3 -mt-3">
+            {fest.modality.map((item,index) => (
+              <span className="text-secondary text-xs" key={index}>{item}</span>
+            ))}
+          </div>
           <div className="px-3 flex flex-col gap-2 py-4 text-secondary">
             <div className="flex gap-2">
               <Image

@@ -6,11 +6,11 @@ const Header = () => {
   return (
     <>
       <header className="paralax ">
-        <div className="bg-zinc-950 min-h-[500px] bg-opacity-50">
-          <div className=" flex flex-col md:py-[60px]">
-            <span className="leading-[50px] text-4xl text-primary m-9 text-center md:text-5xl">
-              ¡¡Feel the rhythm, live the experience!!
-            </span>
+        <div className="bg-zinc-950 min-h-[400px] bg-opacity-50">
+          <div className=" flex flex-col ">
+            <div className="h-[350px] flex items-center justify-center">
+              <span className="leading-[50px] ps-6 text-4xl text-primary my-9 md:text-5xl">¡¡Siente el ritmo, vive la experiencia!!</span>
+            </div>
           </div>
         </div>
       </header>

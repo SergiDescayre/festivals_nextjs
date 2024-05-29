@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFestivalContext } from "@/context/FestivalContext";
 import { FestivalContextType } from "@/types/types";
@@ -7,32 +8,26 @@ import { Festival } from "@/types/types";
 
 const ListFestivals = () => {
   const { festivals } = useFestivalContext() as FestivalContextType;
-
   const [ordered, setOrdered] = useState<Festival[]>([]);
   const [selectModality , setSelectModality] = useState<string>("")
 
   useEffect(() => {
-    // Cuando el componente se monta, inicializa la lista ordenada
     setOrdered(festivals);
-  }, [festivals]); // Asegura que se actualice cuando los festivales cambien
+  }, [festivals]); 
 
   const festivalsAsc = () => {
-    // Ordena los festivales en orden ascendente
-    const sortedFestivals = [...festivals].sort(
+    const sortedFestivals = [...ordered].sort(
       (a, b) =>
         new Date(a.data_start).getTime() - new Date(b.data_start).getTime()
     );
-    // Actualiza el estado con los festivales ordenados
     setOrdered(sortedFestivals);
   };
 
   const festivalsDesc = () => {
-    // Ordena los festivales en orden descendente
-    const sortedFestivals = [...festivals].sort(
+    const sortedFestivals = [...ordered].sort(
       (a, b) =>
         new Date(b.data_start).getTime() - new Date(a.data_start).getTime()
     );
-    // Actualiza el estado con los festivales ordenados
     setOrdered(sortedFestivals);
   };
 
@@ -50,23 +45,28 @@ const ListFestivals = () => {
       setOrdered(festivals.filter(item => item.modality.includes("Balboa")))
       setSelectModality("Balboa")
     }
+    if(e.target.value === "Todos"){
+      setSelectModality("Todos")
+    }
   }
 
   return (
     <section className="container mx-auto">
-      <div className="bg-dark50 flex py-3 gap-3 justify-end px-5">
-        <select className="select select-sm w-full max-w-xs" value={selectModality} onChange={filterByModality}>
-        <option value="Todos" >Todos</option>
-          <option value="Lindy Hop" >Lindy Hop</option>
-          <option value="Blues" >Blues</option>
-          <option value="Balboa" >Balboa</option>
+      <div className="bg-dark50 ">
+        <div className = "flex py-8 gap-3 justify-center px-5">
+        <select className="select select-sm w-full max-w-xs bg-orange-100" value={selectModality} onChange={filterByModality}>
+          <option className="bg-secondary" value="Todos" >Todos</option>
+          <option className="bg-secondary" value="Lindy Hop" >Lindy Hop</option>
+          <option className="bg-secondary" value="Blues" >Blues</option>
+          <option className="bg-secondary" value="Balboa" >Balboa</option>
         </select>
-        <button className="btn btn-sm color_primary " onClick={festivalsAsc}>
-          Asc
+        <button className="btn btn-sm bg-primary border-none hover:bg-orange-100 " onClick={festivalsAsc}>
+         <Image src="/assets/arrow_up.svg" width={10} height={10} alt="arrow" />
         </button>
-        <button className="btn  btn-sm color_primary " onClick={festivalsDesc}>
-          Desc
+        <button className="btn  btn-sm bg-primary border-none hover:bg-orange-100 " onClick={festivalsDesc}>
+        <Image src="/assets/arrow_down.svg" width={10} height={10} alt="arrow" />
         </button>
+        </div>
       </div>
 
       <div className="flex justify-center gap-4 bg-dark50 flex-wrap py-6">
