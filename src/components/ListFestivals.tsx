@@ -9,6 +9,7 @@ const ListFestivals = () => {
   const { festivals } = useFestivalContext() as FestivalContextType;
 
   const [ordered, setOrdered] = useState<Festival[]>([]);
+  const [selectModality , setSelectModality] = useState<string>("")
 
   useEffect(() => {
     // Cuando el componente se monta, inicializa la lista ordenada
@@ -35,14 +36,30 @@ const ListFestivals = () => {
     setOrdered(sortedFestivals);
   };
 
+  const filterByModality = (e: React.ChangeEvent<HTMLSelectElement>)  => {
+    setOrdered(festivals)
+    if(e.target.value === "Lindy Hop"){
+      setOrdered(festivals.filter(item => item.modality.includes("Lindy Hop")))
+      setSelectModality("Lindy Hop")
+    }
+    if(e.target.value === "Blues"){
+      setOrdered(festivals.filter(item => item.modality.includes("Blues")))
+      setSelectModality("Blues")
+    }
+    if(e.target.value === "Balboa"){
+      setOrdered(festivals.filter(item => item.modality.includes("Balboa")))
+      setSelectModality("Balboa")
+    }
+  }
+
   return (
     <section className="container mx-auto">
       <div className="bg-dark50 flex py-3 gap-3 justify-end px-5">
-        <select className="select select-sm w-full max-w-xs">
-          <option selected>Todos</option>
-          <option>Lindy Hop</option>
-          <option>Blues</option>
-          <option>Balboa</option>
+        <select className="select select-sm w-full max-w-xs" value={selectModality} onChange={filterByModality}>
+        <option value="Todos" >Todos</option>
+          <option value="Lindy Hop" >Lindy Hop</option>
+          <option value="Blues" >Blues</option>
+          <option value="Balboa" >Balboa</option>
         </select>
         <button className="btn btn-sm color_primary " onClick={festivalsAsc}>
           Asc

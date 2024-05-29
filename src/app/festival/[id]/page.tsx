@@ -1,12 +1,11 @@
 "use client";
+import Image from "next/image";
 import { Params } from "@/types/types";
 import { useEffect } from "react";
 import { useFestivalContext } from "@/context/FestivalContext";
 import { FestivalContextType, Festival } from "@/types/types";
 import CountDawn from "@/components/CountDawn";
-import DateFestivalHorizontal from "@/components/DateFestivalHorizontal";
-
-import ButtonComeBack from "@/components/ButtonComeBack";
+import DateFestival from "@/components/DateFestival";
 
 interface Props {
   params: Params;
@@ -18,7 +17,7 @@ const page = ({ params }: Props) => {
   useEffect(() => {
     getFestivalByDocId(params.id);
   }, []);
-  console.log(infoFestival);
+ 
 
   return (
     <div className="bg-dark50 min-h-[1000px]">
@@ -28,7 +27,7 @@ const page = ({ params }: Props) => {
             <span className="text-primary uppercase font-semibold mt-5 mb-3 md:text-2xl xl:text-4xl x:mb-5">
               {infoFestival.name}
             </span>
-            <ButtonComeBack />
+            
           </div>
 
           <div className="flex flex-col md:flex-row w-[80%] md:align-center max-w-[1440px] mx-auto">
@@ -54,7 +53,12 @@ const page = ({ params }: Props) => {
             <div className="flex flex-col md:mt-4  gap-3 md:ps-6  flex-grow ">
               <div className="flex flex-col gap-3">
                 <div className="flex gap-2 items-center">
-                  {/* <img className="w-4 lg:w-6" src={location} alt="" /> */}
+                <Image
+                src="/assets/location.svg"
+                width={12}
+                height={12}
+                alt="location"
+              />
                   <span className="text-xs xl:text-base capitalize ">
                     {infoFestival.address} - {infoFestival.city} -{" "}
                     {infoFestival.CP}
@@ -62,15 +66,22 @@ const page = ({ params }: Props) => {
                 </div>
 
                 <div className="flex gap-2 text-xs xl:text-base">
-                  {/* <img className="w-4 lg:w-6" src={calendar} alt="" /> */}
-                  <DateFestivalHorizontal
-                    dateStart={infoFestival.data_start}
-                    dateEnd={infoFestival.data_end}
-                  />
+                <Image
+                src="/assets/calendar.svg"
+                width={12}
+                height={12}
+                alt="calendar"
+              />
+                  <DateFestival date={infoFestival.data_start} />
                 </div>
 
                 <div className="flex gap-2">
-                  {/* <img className="w-4 lg:w-6" src={price} alt="price" /> */}
+                <Image
+                src="/assets/price.svg"
+                width={12}
+                height={12}
+                alt="price"
+              />
                   <span className="text-xs xl:text-base ">
                     {infoFestival.minPrice} €{infoFestival.maxPrice} €
                   </span>
