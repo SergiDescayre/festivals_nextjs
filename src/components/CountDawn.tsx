@@ -9,7 +9,6 @@ const CountDawn = ({ date }: Props) => {
   const endDate = new Date(date).getTime();
   // Estado para almacenar el tiempo restante
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
-  const [lastTime, setLastTime] = useState(false);
 
   // Función para calcular el tiempo restante
   function calculateTimeRemaining() {
@@ -41,9 +40,7 @@ const CountDawn = ({ date }: Props) => {
   return (
     <div className="grid grid-cols-4 gap-1 text-center p-3 ">
       <div
-        className={`flex flex-col p-2  ${
-          lastTime ? "text-red-500" : "text-secondary"
-        }  items-center w-18 `}
+        className="flex flex-col p-2 text-secondary items-center w-18"
       >
         <div className="flex flex-col items-center ">
           <span className="countdown text-2xl xl:text-3xl">
@@ -53,9 +50,7 @@ const CountDawn = ({ date }: Props) => {
         </div>
       </div>
       <div
-        className={`flex flex-col p-2 ${
-          lastTime ? "text-red-500" : "text-secondary"
-        }  items-center w-18 `}
+         className="flex flex-col p-2 text-secondary items-center w-18"
       >
         <span className="countdown text-2xl xl:text-3xl">
           <span
@@ -65,9 +60,7 @@ const CountDawn = ({ date }: Props) => {
         <span className="text-xs xl:text-sm text-primary">Horas</span>
       </div>
       <div
-        className={`flex flex-col p-2 ${
-          lastTime ? "text-red-500" : "text-secondary"
-        }  items-center w-18 `}
+        className="flex flex-col p-2 text-secondary items-center w-18"
       >
         <span className="countdown text-2xl xl:text-3xl">
           <span
@@ -77,9 +70,7 @@ const CountDawn = ({ date }: Props) => {
         <span className="text-xs xl:text-sm text-primary">Min</span>
       </div>
       <div
-        className={`flex flex-col p-2 ${
-          lastTime ? "text-red-500" : "text-secondary"
-        }  items-center w-18 `}
+        className="flex flex-col p-2 text-secondary items-center w-18"
       >
         <span className="countdown text-2xl xl:text-3xl">
           <span

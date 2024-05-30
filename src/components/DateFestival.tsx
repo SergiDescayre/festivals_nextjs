@@ -1,6 +1,4 @@
-import React, { useTransition } from "react";
 import { months } from "@/data/months";
-
 interface Props {
   date: string;
 }

@@ -19,7 +19,7 @@ const page = ({ params }: Props) => {
   }, []);
 
   return (
-    <div className="bg-dark50 min-h-[1000px]">
+    <div className="bg-dark50 min-h-[1200px]">
       {infoFestival && (
         <div className="w-full bg-zinc-800 text-secondary max-w-[1440px] mx-auto ">
           <div className="w-[80%] text-center flex items-center justify-between mx-auto">
@@ -78,7 +78,7 @@ const page = ({ params }: Props) => {
                     alt="price"
                   />
                   <span className="text-xs xl:text-base ">
-                    {infoFestival.minPrice} €{infoFestival.maxPrice} €
+                    Desde {infoFestival.minPrice} € hasta {infoFestival.maxPrice} €
                   </span>
                 </div>
               </div>
@@ -105,7 +105,6 @@ const page = ({ params }: Props) => {
                   <ul>
                     {infoFestival.listOfTeachers.map((item, index) => (
                       <li key={index} className="text-xs xl:text-base ms-2">
-                        {" "}
                         - {item}
                       </li>
                     ))}
