@@ -15,7 +15,6 @@ import { Festival, FestivalContextType } from "@/types/types";
 const FestivalContext = createContext<FestivalContextType>({
   festivals: [],
   infoFestival: null,
-  isFoundFestival: true,
   contentQuill: "",
   setContentQuill: () => {},
   setInfoFestival: () => {},
@@ -27,7 +26,6 @@ const FestivalContext = createContext<FestivalContextType>({
 const ContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [festivals, setFestivals] = useState<Festival[]>([]);
   const [infoFestival, setInfoFestival] = useState<Festival | null>(null);
-  const [isFoundFestival, setIsFoundFestival] = useState<boolean>(true);
   const [contentQuill, setContentQuill] = useState<string>("");
 
   // Get festival by document ID
@@ -66,7 +64,6 @@ const ContextProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         festivals,
         infoFestival,
-        isFoundFestival,
         contentQuill,
         setContentQuill,
         setInfoFestival,

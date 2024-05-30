@@ -20,7 +20,6 @@ export interface Festival {
 export interface FestivalContextType {
   festivals: Festival[];
   infoFestival: Festival | null;
-  isFoundFestival: boolean;
   contentQuill: string;
   setContentQuill: (content: string) => void;
   setInfoFestival: (festival: Festival | null) => void;
